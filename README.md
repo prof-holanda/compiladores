@@ -4,7 +4,7 @@
 
 ### Windows
 
-1. Abra o PowerShell como administrador e execute o comando 
+1. Abra o PowerShell como **Administrador** e execute o comando a seguir
 para permitir que _scripts_ sem assinatura digital sejam executados:
 
 ```
