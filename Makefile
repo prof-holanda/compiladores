@@ -1,10 +1,22 @@
+ifeq ($(OS),Windows_NT)
+	RM := del
+	DEV_NULL := 2> $$null
+else
+	DEV_NULL := 2>/dev/null
+endif
 # LaTeX and beamer LaTeX must be installed
-FORMAT := beamer
-slides.pdf: slides.md
-	pandoc -t $(FORMAT) -s $< -o $@
+%.pdf: %.md
+	pandoc -t beamer -s $< -o $@
 
-# Here format may be s5, slidy, slideous, dzslides, or revealjs.
+# Here engine may be s5, slidy, slideous, dzslides, or revealjs.
 # But all these framworks must be installed.
-FORMAT := revealjs
-slides.html: slides.md
-	pandoc -t $(FORMAT) -s $< -o $@
+ENGINE := slidy
+%.html: %.md
+	pandoc --self-contained -t $(ENGINE) -s $< -o $@
+
+clean:
+	$(RM) *.html $(DEV_NULL)
+	$(RM) *.pdf $(DEV_NULL)
+	$(RM) $$null
+
+.PHONY: clean
