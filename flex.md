@@ -2,6 +2,28 @@
 % Adriano J. Holanda e Zhao Liang
 % 2021-09-10
 
+# História e princípios
+
+- [`bison`](https://www.gnu.org/software/bison/) 
+descende do [`yacc`](https://pt.wikipedia.org/wiki/Yacc) 
+desenvolvido por 
+[Stephen C. Johnson](https://en.wikipedia.org/wiki/Stephen_C._Johnson) 
+entre 1975 e 1978 no 
+[Bell Labs](https://pt.wikipedia.org/wiki/Bell_Labs).
+- Johnson trabalhou em estreita colaboração com 
+[ALfred Aho](https://en.wikipedia.org/wiki/Alfred_Aho)
+e sob a base teórica sólida do trabalho de 
+[Don E. Knuth](https://www-cs-faculty.stanford.edu/~knuth/)
+na área de compiladores.
+- Uma das motivações era desenvolver extensões para o 
+programa [`troff`](https://en.wikipedia.org/wiki/Troff)
+usando a filosofia 
+[`Unix`](https://en.wikipedia.org/wiki/Unix_philosophy).
+- `flex` descende do `lex` desenvolvido por 
+[Mike Lesk](https://en.wikipedia.org/wiki/Mike_Lesk)
+e [Eric Schmidt](https://en.wikipedia.org/wiki/Eric_Schmidt)
+em 1975 no Bell Labs.
+
 # Criando um analisador léxico
 
 ![](img/lex-compilador.png)
@@ -72,10 +94,25 @@ código
    `b{1,4}`             combina de 1 a 4 ocorrências da letra `b`
    `2{5}`               combina com 5 ocorrências do número `2`
    `[ \t]*`             combina opcionalmente espaços e tabulações
-   `^[a2-9tjqk]{5}$`    combina linhas que contenham strings de tamanho 5
-                        que comecem com `a` ou `2` e terminem com `9`,
-                        `t`, `j`, `q` ou `k` - `akt5q`, `727ak`, ~~`akt5e`~~
-                        ~~`akt`~~
+   `^a|o$`              combina linhas que contenham strings 
+                        onde a primeira letra seja `a` ou a última letra seja `o` 
+                        - "`andar\n`", "`mercado pago\n`", "~~`sem novidade\n`~~"
+
+# Usando `flex`
+
+- Fluxo de compilação
+
+ ```
+$ lex -o arquivo.yy.c arquivo.l
+$ gcc -o arquivo.exe arquivo.yy.c
+ ```
+
+- Variáveis e funções internas
+
+  |**variável ou função**   |  **descrição**                                     |
+  |:------------------------|:---------------------------------------------------|
+  |`yylex()`                |  realiza leitura dos caracteres de entrada         |
+  |`yyin`                   |  deve receber o ponteiro para o arquivo a ser lido |
 
 # Referências
 
