@@ -12,7 +12,7 @@ endif
 # But all these framworks must be installed.
 ENGINE := slidy
 %.html: %.md
-	pandoc --self-contained -t $(ENGINE) -s $< -o $@
+	pandoc -s -t $(ENGINE) -s $< -o $@
 
 clean:
 	$(RM) *.html $(DEV_NULL)
