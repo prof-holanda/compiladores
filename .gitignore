@@ -3,7 +3,7 @@
 
 # cc
 a.out
-a.exe
+*.exe
 
 # flex
 *.yy.c
