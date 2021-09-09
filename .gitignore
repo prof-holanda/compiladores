@@ -1,2 +1,9 @@
 *.html
 *.pdf
+
+# cc
+a.out
+a.exe
+
+# flex
+*.yy.c
