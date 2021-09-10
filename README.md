@@ -3,7 +3,7 @@
 ## Material Didático
 
 - Slides sobre [`flex`](https://drive.google.com/file/d/1kWByXIBed08TE1apS7LiLO39NRBF4xKS/view?usp=sharing)
-- [Exercícios](./exercícios.md) sobre expressões regulares
+- [Exercícios](https://github.com/prof-holanda/compiladores/blob/main/exercicios.md) sobre expressões regulares
 
 ## Setup
 
