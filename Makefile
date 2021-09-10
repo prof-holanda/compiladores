@@ -4,9 +4,15 @@ ifeq ($(OS),Windows_NT)
 else
 	DEV_NULL := 2>/dev/null
 endif
+
+TEX_FLAGS := --pdf-engine xelatex
+
 # LaTeX and beamer LaTeX must be installed
+exercicios.pdf: exercicios.md
+	pandoc -t pdf $(TEX_FLAGS) -s $< -o $@
+
 %.pdf: %.md
-	pandoc -t beamer -s $< -o $@
+	pandoc -t beamer $(TEX_FLAGS) -s $< -o $@
 
 # Here engine may be s5, slidy, slideous, dzslides, or revealjs.
 # But all these framworks must be installed.
