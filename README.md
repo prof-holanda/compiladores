@@ -35,7 +35,7 @@ $ bash lnx.sh
 O script foi testado no Debian, talvez algumas alterações tenham que ser feitas para o 
 Ubuntu.
 
-## Fluxo de compilação
+## Fluxo de Compilação
 
 ### Windows
 
@@ -60,6 +60,14 @@ Abra o `bash` e entre no diretório que contém os arquivos com os códigos e ex
 
 .../compiladores/src$ ./f01 arquivo_de_entrada.txt
 ```
+
+# Dicas e Recursos
+
+- [Guia de instalação do Subsistema Windows para Linux para Windows 10](https://docs.microsoft.com/pt-br/windows/wsl/install-win10).
+- Como instalar o [Windows Terminal](https://www.microsoft.com/pt-br/p/windows-terminal/9n0dx20hk701) para executar comandos `Unix`-like com mais facilidade.
+-  Brian Kernighan, [UNIX: A History and a Memoir](https://www.amazon.com.br/UNIX-History-English-Brian-Kernighan-ebook/dp/B07ZQHX3R1): 
+Livro que narra a história do desenvolvimento do Sistema Operacional `Unix` por quem participou ativamente
+do processo. Neste livro é descrito com detalhes o surgimento do `lex` e `yacc`.
 
 ---
 [Adriano J. Holanda](https://ajholanda.github.io/)
