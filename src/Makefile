@@ -1,12 +1,19 @@
 ifeq ($(OS),Windows_NT)
 	FLEX := win_flex
-	BISON := win_bison
+	CC := gcc
+	BIN_EXT = .exe
 else
-	FLEX := flex
-	BISON := bison
+	FLEX := FLEX
+	BIN_EXT := ""
 endif
 
-all:
-	@echo $(FLEX)
+%.yy.c: %.l
+	$(FLEX) -o $@ $<
 
-.PHONY: all
+%$(BIN_EXT): %.yy.c
+	$(CC) $< $(CFLAGS) -o $@ $(LDFLAGS)
+
+clean:
+	$(RM) *.exe *.yy.c
+
+.PHONY: clean
