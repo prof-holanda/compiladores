@@ -1,8 +1,9 @@
 # Compiladores (aka flex+bison)
 
-## Slides
+## Material Didático
 
-- [`flex`](https://drive.google.com/file/d/1kWByXIBed08TE1apS7LiLO39NRBF4xKS/view?usp=sharing)
+- Slides sobre [`flex`](https://drive.google.com/file/d/1kWByXIBed08TE1apS7LiLO39NRBF4xKS/view?usp=sharing)
+- [Exercícios](./exercícios.md) sobre expressões regulares
 
 ## Setup
 
