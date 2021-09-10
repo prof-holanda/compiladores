@@ -83,7 +83,7 @@ código
     expressão           descrição do padrão
   -------------------   ---------------------
    `.+`                 combina com qualquer caracter
-   `[a-bA-B]+`          combina com qualquer conjunto de letras
+   `[a-zA-Z]+`          combina com qualquer conjunto de letras
                         maiúsculas ou minúsculas - `abc`, `AbC`, `zZz`
    `[0-9]+`             combina com qualquer sequência de números -
                         `0`, `12`, `5633`, `1111`
