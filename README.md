@@ -22,6 +22,19 @@ a serem usados:
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/prof-holanda/compiladores/main/setup/win.ps1'))
 ```
 
+### Linux
+
+Execute os seguintes comandos no `bash`:
+
+```
+$ cd /tmp
+$ wget https://raw.githubusercontent.com/prof-holanda/compiladores/main/setup/lnx.sh
+$ bash lnx.sh
+```
+
+O script foi testado no Debian, talvez algumas alterações tenham que ser feitas para o 
+Ubuntu.
+
 ## Fluxo de compilação
 
 ### Windows
