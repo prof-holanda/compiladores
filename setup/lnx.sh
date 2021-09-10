@@ -8,13 +8,29 @@
 # bash lnx.sh
 # sudo bash lnx.sh
 
+function install_vscode() {
+    curl -sSL https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+    sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+    sudo apt update && sudo apt install code
+}
+
 # Change according to distro [default=Ubuntu|Debian]
 INSTALL="apt install"
 
-TOOLS="bison flex gcc make pandoc"
+TOOLS="apt-transport-https curl bison flex gcc make pandoc software-properties-common"
 
 for t in ${TOOLS}; do
     [[ `which $t` == "" ]]  $t && ${INSTALL} $t
 done
+
+read -r -p "Do you want install VS Code? [y/N] " response
+case "$response" in
+    [yY][sS]|[yY]) 
+        install_vscode
+        ;;
+    *)
+    echo "Ok: no need for VS Code!"
+        ;;
+esac
 
 exit 0
