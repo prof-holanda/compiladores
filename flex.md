@@ -1,6 +1,10 @@
-% Análise léxica usando `flex`
-% Adriano J. Holanda e Zhao Liang
-% 2021-09-10
+---
+title: Análise léxica usando `flex`
+author:
+- Adriano J. Holanda
+- Zhao Liang
+date: 2021-09-10
+---
 
 # História e princípios
 
