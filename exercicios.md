@@ -1,6 +1,8 @@
-% Usando `flex` e `bison`
-% Adriano J. Holanda
-% 2021-09-10
+---
+title: Usando `flex` e `bison`
+author: Adriano J. Holanda
+date 2021-09-10
+---
 
 # Exercícios
 
