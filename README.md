@@ -23,6 +23,8 @@ a serem usados:
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/prof-holanda/compiladores/main/setup/win.ps1'))
 ```
 
+- [Vídeo no Youtube demonstrando o processo de setup do Windows passo a passo](https://youtu.be/Shp0N-T17bA).
+
 ### Linux
 
 Execute os seguintes comandos no `bash`:
