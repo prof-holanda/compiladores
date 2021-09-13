@@ -6,13 +6,14 @@ else
 endif
 
 TEX_FLAGS := --pdf-engine xelatex
+BEAMER_FLAGS := -V colorlinks -V linkcolor=blue -V urlcolor=blue
 
 # LaTeX and beamer LaTeX must be installed
 exercicios.pdf: exercicios.md
 	pandoc -t pdf $(TEX_FLAGS) -s $< -o $@
 
 %.pdf: %.md
-	pandoc -t beamer $(TEX_FLAGS) -s $< -o $@
+	pandoc -t beamer $(TEX_FLAGS) $(BEAMER_FLAGS) -s $< -o $@
 
 # Here engine may be s5, slidy, slideous, dzslides, or revealjs.
 # But all these framworks must be installed.
