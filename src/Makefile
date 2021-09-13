@@ -19,6 +19,7 @@ endif
 clean:
 	$(RM) *.exe $(DEV_NULL)
 	$(RM) *.yy.c $(DEV_NULL)
+	$(RM) *~ $(DEV_NULL)
 	$(RM) $$null
 
 .PHONY: clean
