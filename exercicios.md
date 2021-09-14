@@ -1,7 +1,9 @@
 ---
 title: Usando `flex` e `bison`
-author: Adriano J. Holanda
-date 2021-09-14
+author: 
+- Adriano J. Holanda
+- Zhao Liang
+date: 2021-09-14
 ---
 
 # Exercícios
