@@ -3,7 +3,7 @@
 ## Material Didático
 
 - Slides sobre [`flex`](https://drive.google.com/file/d/1kWByXIBed08TE1apS7LiLO39NRBF4xKS/view?usp=sharing);
-- [Exercícios](https://github.com/prof-holanda/compiladores/blob/main/exercicios.md) sobre sobre análise léxica usando `flex`.
+- [Exercícios](https://github.com/prof-holanda/compiladores/blob/main/exercicios.md) sobre análise léxica usando `flex`.
 
 ## Setup
 
