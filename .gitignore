@@ -9,5 +9,8 @@ a.out
 # flex
 *.yy.c
 
+# bison
+*.tab.*
+
 # Vim
 *~
