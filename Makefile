@@ -24,6 +24,7 @@ ENGINE := slidy
 clean:
 	$(RM) *.html $(DEV_NULL)
 	$(RM) *.pdf $(DEV_NULL)
+	$(RM) *~ $(DEV_NULL)
 	$(RM) $$null
 
 .PHONY: clean
