@@ -71,6 +71,11 @@ Abra o `bash` e entre no diretório que contém os arquivos com os códigos e ex
 -  Brian Kernighan, [UNIX: A History and a Memoir](https://www.amazon.com.br/UNIX-History-English-Brian-Kernighan-ebook/dp/B07ZQHX3R1): 
 Livro que narra a história do desenvolvimento do Sistema Operacional `Unix` por quem participou ativamente
 do processo. Neste livro é descrito com detalhes o surgimento do `lex` e `yacc`.
+- [Chocolatey](https://chocolatey.org/): gerenciador de instalação de programas para Windows.
+- [VS Code](https://code.visualstudio.com/download): editor usado nas demonstrações e aulas.
+- [Mingw](https://www.mingw-w64.org/): projeto contendo o `gcc` para Windows. Porém, qualquer compilador C pode ser usado, dentre eles: [`tcc`](https://bellard.org/tcc/) e
+[`clang`](https://clang.llvm.org/).
+- [winflexbison](https://github.com/lexxmark/winflexbison/releases): projeto de portabilidade do `flex` e `bison` para Windows.
 
 ---
 [Adriano J. Holanda](https://ajholanda.github.io/)
