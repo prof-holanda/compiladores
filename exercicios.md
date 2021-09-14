@@ -1,7 +1,7 @@
 ---
 title: Usando `flex` e `bison`
 author: Adriano J. Holanda
-date 2021-09-10
+date 2021-09-14
 ---
 
 # Exercícios
@@ -51,6 +51,24 @@ r) `(a|ab)/ba`
 s) `aa*|a*`
 
 t) `[\^\+\-\:\*\]]`
+
+2) Implemente os seguintes programas usando o analisador léxico `flex`.
+
+a) Imprima o número de palavras que comecem com letras maiúsculas de um 
+texto fornecido pela entrada-padrão ou arquivo (daqui pra frente só texto fornecido).
+
+b) Imprima o número de letras maiúsculas, minúsculas e números em um texto fornecido.
+
+c) Imprima o número de vogais e consoantes em um texto fornecido.
+
+d) A partir de um texto fornecido, imprima os valores existentes no texto 
+em moeda brasileira, por exemplo, "R$ 12,50", "R$312,78" ou "R$ 0,62".
+
+e) Receba um arquivo contendo código fonte em C e imprima a quantidade de:
+    - palavras reservadas: `if`, `else`, `while`, `do`, `switch` e `case`;
+    - funções;
+    - números inteiros;
+    - caracteres especiais: "`!`", "`@`", "`*`", "`&`", "`|`", "`%`", "`$`" e "`#`".
 
 ## Referência
 
