@@ -6,7 +6,7 @@ ifeq ($(OS),Windows_NT)
 	DEV_NULL := 2> $$null
 	RM = del
 else
-	FLEX := FLEX
+	FLEX := flex
 	BISON := bison
 	BIN_EXT := ""
 	DEV_NULL := 2>/dev/null	
@@ -16,20 +16,21 @@ endif
 %.yy.c: %.l
 	$(FLEX) -o $@ $<
 
+# flex-only binaries
+f%$(BIN_EXT): f%.yy.c 
+	$(CC) $< $(CFLAGS) -o $@ $(LDFLAGS)
+
 # bison
 %.tab.c: %.y
 	$(BISON) -d $< -o $@
 
-# flex+bison only binary
-fb%$(BIN_EXT): fb%.tab.c fb%.yy.c lexyacc.c
-	$(CC) $^ $(CFLAGS) -o $@ $(LDFLAGS)
-
-# flex only binary
-f%$(BIN_EXT): f%.yy.c 
-	$(CC) $< $(CFLAGS) -o $@ $(LDFLAGS)
+yy.o: yy.c
+	$(CC) -c $<
 
 clean:
 	$(RM) *.exe $(DEV_NULL)
+	$(RM) *.o $(DEV_NULL)
+	$(RM) *.tab.c $(DEV_NULL)
 	$(RM) *.yy.c $(DEV_NULL)
 	$(RM) *~ $(DEV_NULL)
 	$(RM) $$null
