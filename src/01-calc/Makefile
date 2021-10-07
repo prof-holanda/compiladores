@@ -1,14 +1,14 @@
 include ../Makefile
 
-LDFLAGS += -lm -lfl
+LDFLAGS += -lfl
 
-calc.tab.h calc.tab.c: calc.y
+y.tab.h y.tab.c: calc.y
 	$(BISON) -d $<
 
-calc.lex.c: calc.l calc.tab.h
+lex.yy.c: calc.l y.tab.h
 	$(FLEX) -o$@ $<
 
 # flex+bison only binary
-calc: calc.tab.c calc.lex.c
+calc: calc.tab.c lex.yy.c
 	$(CC) $^ $(CFLAGS) -o $@ $(LDFLAGS)
 
