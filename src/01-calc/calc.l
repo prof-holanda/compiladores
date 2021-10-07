@@ -1,19 +1,16 @@
 
 %{
-#include "calc.tab.h"
+#include <stdlib.h>
+#include "calc.tab.h" // yacc -d calc.y
 
-extern void yyerror (char const *s, ...);
+extern int yyerror (char const *msg, ...);
 %}
 
 %option noyywrap nodefault yylineno
 %%
-"+" |
-"-" |
-"*" |
-"/"         { return yytext[0]; }
-[0-9]+      { yylval.d = atof(yytext); return NUMBER; }
-\n          { return EOL; }
-[ \t]       { /* ignore spaces */}
-.           { yyerror("error: unknown token %c\n", *yytext); }
+[0-9]+(\.[0-9]+)?([eE][0-9]+)?      { yylval.f = atof(yytext); return NUMBER; }
+[-+()*/]                            { return yytext[0]; }
+[ \t\n]                             { ; }
+.                                   { yyerror("unknown token %s\n", yytext); }
 %%
 
