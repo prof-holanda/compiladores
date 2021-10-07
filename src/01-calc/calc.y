@@ -1,119 +1,58 @@
 /* 
-    Example 3-1 from "flex & bison" book.
-    An improved calculator.
+   Calculadora de expressão aritmética em notação infixa
 */
 
 %{
-#define YYSTYPE double
 #include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
-
-struct ast {
-        int nodetype;
-        struct ast *l;
-        struct ast *r;
-};
-
-struct numval {
-        int nodetype;
-        double number;
-}
-
-extern struct ast *new_num(int i);
-extern struct ast *ast_new(int nodetype, struct ast *l, struct ast *r);
-extern void ast_free(struct ast*);
 
 /* flex */
 extern int yylineno;
 
-extern void yyerror (char const *s, ...);
+extern int yyerror (char const *msg, ...);
 extern int yylex();
 
-#define YYSTYPE struct ast *
 %}
 
+/* bison: declarações */
 %union {
-        struct ast *a;
-        double d;
+        float f;
 }
+%token <f> NUMBER
+%type  <f> expr term factor
 
-/* BISON Declarations */
-%type   <a> exp factor term
-%token  <d> NUMBER
-%token  EOL
-%token  NEG
-
-/* Grammar follows */
+/* Gramatica */
 %%
-calclist:    /* none */
-        | calclist exp EOL {
-                printf("= %4.4g\n", eval($2));
-                ast_free($2)
-                printf("> ");
-        }
-        | calclist EOL { printf("> "); }
-;
+calc:   expr                { printf("%f\n", $1); }
+        ;
 
-exp: factor
-   | exp '+' factor     { $$ = ast_new('+', $1, $3); } 
-   | exp '+' factor     { $$ = ast_new('-', $1, $3); } 
-;
+expr:   expr '+' term       { $$ = $1 + $3; }
+        | expr '-' term     { $$ = $1 + $3; }
+        | term              { $$ = $1; }
+        ;
 
-factor: term
-   | factor '*' term    { $$ = ast_new('+', $1, $3); } 
-   | factor '/' term    { $$ = ast_new('-', $1, $3); } 
-;
+term:   term '*' factor     { $$ = $1 * $3; }
+        | term '/' factor   { $$ = $1 / $3; }
+        | factor            { $$ = $1; }
+        ;
 
-term: NUMBER { $$ newnum($1); }
-   | '|' term           { $$ = ast_new('|', $2, NULL); } 
-   | '(' exp ')'        { $$ = $2; }
-   | '-' term           { $$ = ast_new('M', $2, NULL); } 
-;
+factor: '(' expr ')'        { $$ = $2; }
+        | '-' factor        { $$ = -$2; }
+        | NUMBER            { $$ = $1; }
+        ;
 %%
 
-void yyerror (const char *s, ...) {
-    va_list ap;
-    va_start(ap, s);
-    fprintf (stderr, "%d error:", yylineno);
-    vfprintf(stderr, s, ap);
-    fprintf(stderr, "\n");
-}
+int yyerror(const char *msg, ...) {
+	va_list args;
 
-static struct ast *ast_alloc() {
-        struct ast *a = malloc(sizeof(struct ast));
+	va_start(args, msg);
+	vfprintf(stderr, msg, args);
+	va_end(args);
 
-        if (!a) {
-                yyerror("error: memory allocation failed\n");
-                exit(EXIT_FAILURE);
-        }
-        return a;
-}
-
-struct ast *ast_new(int nodetype, struct ast *l, struct ast *r) {
-        struct ast *a = ast_alloc();
-
-        a->nodetype = nodetype;
-        a->l = l;
-        a->r = r;
-
-        return a;
-}
-
-struct ast *num_new(double d) {
-        struct numval *a = (struct numval*)ast_alloc();
-
-        a->nodetype = 'K';
-        a->number = d;
-
-        return (struct ast*)a;
-}
-
-void ast_free(struct ast *a) {
-        // TODO: implement
+	exit(EXIT_FAILURE);
 }
 
 int main (int argc, char **argv) {
-  return  yyparse();;
+        return  yyparse();
 }
