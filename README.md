@@ -3,7 +3,7 @@
 ## Recursos Didáticos
 
 - [lex](lex/)
-- [yacc](yscc)
+- [yacc](yacc/)
 
 ## Setup
 
