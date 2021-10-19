@@ -1,4 +1,4 @@
-# Compiladores (aka lex &#8594; flex + yacc &#8594; bison)
+# Compiladores (aka `lex` &#8594; `flex` + `yacc` &#8594; `bison`)
 
 ## Recursos Didáticos
 
