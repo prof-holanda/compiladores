@@ -11,5 +11,5 @@ seguinte gramática para expressões aritméticas:
 onde o _token_ `DIGIT` é um único dígito entre 0 e 9.
 
 ---
-O  material deste diretório foi adaptado do livro ["Compiladores..."](https://www.amazon.com.br/dp/B00US12GMG).
+O material contido neste diretório foi adaptado do livro ["Compiladores..."](https://www.amazon.com.br/dp/B00US12GMG).
 
