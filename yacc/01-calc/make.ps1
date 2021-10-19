@@ -1,6 +1,11 @@
-flex calc.l
+# Script to automate compilation flow for yacc.
+# Procedure: open PowerShell, enter in this directory and execute:
+# .\make.ps1
+$proj = "calc"
+flex $proj'.l'
 bison -d calc.y
-gcc -o calc.exe lex.yy.c calc.tab.c
+gcc -o $proj'.exe' lex.yy.c $proj'.tab.c'
 rm lex.yy.c 
-rm calc.tab.c
-rm calc.tab.h
+rm $proj'.tab.c'
+rm $proj'.tab.h'
+echo "* Wrote $proj.exe"
