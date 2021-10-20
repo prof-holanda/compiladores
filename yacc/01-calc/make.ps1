@@ -3,8 +3,8 @@
 # .\make.ps1
 $proj = "calc"
 flex $proj'.l'
-bison -d calc.y
-gcc -o $proj'.exe' lex.yy.c $proj'.tab.c'
+bison -d $proj'.y'
+gcc -o $proj'.exe' $proj'.tab.c'
 rm lex.yy.c 
 rm $proj'.tab.c'
 rm $proj'.tab.h'
