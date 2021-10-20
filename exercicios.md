@@ -109,6 +109,28 @@ da seguinte forma no terminal (PowerShell, bash, ...):
 
 ## `yacc`
 
+1. Escreva um programa de "calculadora de mesa" `yacc` que avalie
+expressões aritméticas usando a [notação polonesa inversa](https://pt.wikipedia.org/wiki/Nota%C3%A7%C3%A3o_polonesa_inversa). 
+[[Solução](https://github.com/prof-holanda/compiladores/tree/bison/yacc/03-calc)]
+
+2. Escreva um programa de "calculadora de mesa" `yacc` que avalie
+expressões aritméticas usando a notação da linguagem 
+[LISP](https://pt.wikipedia.org/wiki/Lisp), 
+com a lista limitada a dois operandos. Por exemplo, a expressão
+
+```
+(/ (* (- 3 1) 4) 2)
+```
+
+tem como sequência de avaliação
+
+```
+(/ (* 2 4) 2) =
+(/ 8 2) =
+4
+```
+[[Solução](https://github.com/prof-holanda/compiladores/tree/bison/yacc/04-calc)]
+
 3. [Aho] Escreva um programa de "calculadora de mesa" `yacc` que avalie
 expressões Booleanas tendo como operações
 
@@ -132,6 +154,7 @@ tem como sequência de avaliação
 1 | 1 =
 1
 ```
+[[Solução](https://github.com/prof-holanda/compiladores/tree/bison/yacc/05-bool)]
 
 ## Referência
 
