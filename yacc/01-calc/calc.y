@@ -40,6 +40,7 @@ factor  :   '(' expr ')'        { $$ = $2; }
         |   DIGIT               { $$ = $1; }
         ;
 %%
+#include "lex.yy.c"
 
 int yyerror(const char *msg, ...) {
 	va_list args;
