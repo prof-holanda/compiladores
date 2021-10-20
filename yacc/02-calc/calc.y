@@ -17,31 +17,34 @@ extern int yylex();
 
 /* bison: declarações */
 %union {
-        float f;
+        double d;
 }
-%token <f> NUMBER
-%type  <f> expr term factor
+%token  <d> NUMBER
+%left   '+' '-'
+%left   '*' '/'
+%right  NEG
+%type   <d> expr
+
 
 /* Gramatica */
 %%
-calc:   expr                { printf("%f\n", $1); }
+lines   : lines expr  '\n'      { printf("%g\n", $2); exit(0); }
+        | lines '\n'
+        | /* vazio */
+        | error'\n'             { yyerror("digite de novo: "); yyerrok; }
         ;
 
-expr:   expr '+' term       { $$ = $1 + $3; }
-        | expr '-' term     { $$ = $1 + $3; }
-        | term              { $$ = $1; }
+expr    : expr '+' expr         { $$ = $1 + $3; }
+        | expr '-' expr         { $$ = $1 + $3; }
+        | expr '*' expr         { $$ = $1 * $3; }
+        | expr '/' expr         { $$ = $1 / $3; }
+        | '(' expr ')'          { $$ = $2; }
+        | '-' expr %prec NEG    { $$ = -$2; }
+        | NUMBER
         ;
 
-term:   term '*' factor     { $$ = $1 * $3; }
-        | term '/' factor   { $$ = $1 / $3; }
-        | factor            { $$ = $1; }
-        ;
-
-factor: '(' expr ')'        { $$ = $2; }
-        | '-' factor        { $$ = -$2; }
-        | NUMBER            { $$ = $1; }
-        ;
 %%
+#include "lex.yy.c"
 
 int yyerror(const char *msg, ...) {
 	va_list args;
