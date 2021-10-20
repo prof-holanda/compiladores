@@ -9,7 +9,7 @@ date:
 
 # Exercícios
 
-## `flex`
+## `lex`
 
 1. Descreva o comportamento das expressões regulares a 
 seguir e dê alguns exemplos de *strings* que se encaixam em 
@@ -105,6 +105,32 @@ da seguinte forma no terminal (PowerShell, bash, ...):
 .\a.exe arquivo.c
 # Linux
 ./a.out arquivo.c
+```
+
+## `yacc`
+
+3. [Aho] Escreva um programa de "calculadora de mesa" `yacc` que avalie
+expressões Booleanas tendo como operações
+
+`'|'` &#8594; `OR`<br>
+`'&'` &#8594; `AND`<br>
+`'^'` &#8594; `XOR`<br>
+`'~'` &#8594; `NOT`<br>
+
+onde o operador unário `'~'` possui maior precedência sobre os demais 
+operadores, sendo que estes possuem mesma precedência excetuando se 
+a expressão estiver entre parênteses. Por exemplo, a expressão
+
+```
+0 ^ (1 | 0) | ~0 
+```
+tem como sequência de avaliação
+
+```
+0 ^ (1 | 0) | 1 =
+0 ^ 1 | 1 =
+1 | 1 =
+1
 ```
 
 ## Referência
