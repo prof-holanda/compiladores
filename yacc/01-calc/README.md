@@ -33,7 +33,8 @@ expr    : expr '+' term { $$ = $1 + $3; }
 
 A produção não-terminal `expr '+' term` possui a ação 
 semântica `$$ = $1 + $3` que atribui `$1` &#8592; `expr` 
-(primeiro termo) e `$3` &#8592; `term` (terceiro termo).
+(primeiro termo) e `$3` &#8592; `term` (terceiro termo) 
+e a soma é atribuída para `$$`.
 
 ---
 O material contido neste diretório foi adaptado do livro ["Compiladores..."](https://www.amazon.com.br/dp/B00US12GMG).
