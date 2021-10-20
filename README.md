@@ -4,7 +4,7 @@
 
 - [lex](lex/)
 - [yacc](yacc/)
-- [Exercícios](https://github.com/prof-holanda/compiladores/blob/main/exercicios.md) sobre análise léxica usando `flex`. [[pdf](https://drive.google.com/file/d/1hOAhKKeneLDFGcZztwBoFxHkGcrHN2Ec/view?usp=sharing)]
+- [Exercícios](https://github.com/prof-holanda/compiladores/blob/main/exercicios.md) sobre análise léxica usando `lex` e `yacc`. [[pdf](https://drive.google.com/file/d/1WCkVJgJfpCTTtohn12ooS58K4Qxvatq0/view?usp=sharing)]
 
 ## Setup
 
