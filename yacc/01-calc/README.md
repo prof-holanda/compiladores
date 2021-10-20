@@ -19,6 +19,22 @@ O enunciado
 declara `DIGIT` como um __token__ que pode ser usado na segunda e 
 terceira parte da especificação.
 
+No `yacc` a gramática
+
+`E` &#8594; `E + T | T` <br>
+
+podem ter suas ações semânticas associadas como
+
+```
+expr    : expr '+' term { $$ = $1 + $3; }
+        | term
+        ;
+```
+
+A produção não-terminal `expr '+' term` possui a ação 
+semântica `$$ = $1 + $3` que atribui `$1` &#8592; `expr` 
+(primeiro termo) e `$3` &#8592; `term` (terceiro termo).
+
 ---
 O material contido neste diretório foi adaptado do livro ["Compiladores..."](https://www.amazon.com.br/dp/B00US12GMG).
 
