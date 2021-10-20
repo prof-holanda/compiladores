@@ -155,9 +155,9 @@ tem como sequência de avaliação
 ```
 
 ### Solução
-[[1]](https://github.com/prof-holanda/compiladores/tree/bison/yacc/03-calc)]
-[[2]](https://github.com/prof-holanda/compiladores/tree/bison/yacc/04-calc)]
-[[3]](https://github.com/prof-holanda/compiladores/tree/bison/yacc/05-bool)]
+[Ex1](https://github.com/prof-holanda/compiladores/tree/bison/yacc/03-calc)]
+[Ex2](https://github.com/prof-holanda/compiladores/tree/bison/yacc/04-calc)]
+[Ex3](https://github.com/prof-holanda/compiladores/tree/bison/yacc/05-bool)]
 
 ## Referência
 
