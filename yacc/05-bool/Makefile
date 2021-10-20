@@ -3,7 +3,7 @@ YACC := bison
 LEX := flex
 CFLAGS := -Wall -g
 LDFLAGS += 
-PROJ := calc
+PROJ := bool
 
 $(PROJ).tab.h $(PROJ).tab.c: $(PROJ).y
 	$(YACC) -d $<
