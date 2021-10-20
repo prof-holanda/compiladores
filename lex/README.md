@@ -3,7 +3,6 @@
 ## Material didático
 
 - Slides sobre [`lex` &#8594; `flex`](https://drive.google.com/file/d/1kWByXIBed08TE1apS7LiLO39NRBF4xKS/view?usp=sharing);
-- [Exercícios](https://github.com/prof-holanda/compiladores/blob/main/exercicios.md) sobre análise léxica usando `flex`. [[pdf](https://drive.google.com/file/d/1hOAhKKeneLDFGcZztwBoFxHkGcrHN2Ec/view?usp=sharing)]
 
 ## Fluxo de Compilação
 

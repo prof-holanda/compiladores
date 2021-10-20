@@ -3,7 +3,6 @@
 ## Material didático
 
 - Slides sobre [`yacc` &#8594; `bison`]();
-- [Exercícios]() sobre análise léxica usando `flex`. [[pdf]()]
 
 ## Fluxo de Compilação
 
