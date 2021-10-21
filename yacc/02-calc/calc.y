@@ -35,7 +35,7 @@ lines   : lines expr  '\n'      { printf("%g\n", $2); exit(0); }
         ;
 
 expr    : expr '+' expr         { $$ = $1 + $3; }
-        | expr '-' expr         { $$ = $1 + $3; }
+        | expr '-' expr         { $$ = $1 - $3; }
         | expr '*' expr         { $$ = $1 * $3; }
         | expr '/' expr         { $$ = $1 / $3; }
         | '(' expr ')'          { $$ = $2; }
