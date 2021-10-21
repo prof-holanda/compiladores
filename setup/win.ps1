@@ -27,6 +27,8 @@ $programs = @(
     
     [pscustomobject]@{ProgramName='make';PackageName='make'}
 
+    [pscustomobject]@{ProgramName='nasm';PackageName='nasm'}
+
     [pscustomobject]@{ProgramName='pandoc';PackageName='pandoc'}
 
     [pscustomobject]@{ProgramName='win_flex';PackageName='winflexbison3'}
@@ -54,3 +56,5 @@ Install_Programs
 # from flex and bison
 New-Item -ItemType SymbolicLink -Path "C:\ProgramData\chocolatey\bin\flex.exe" -Target "C:\ProgramData\chocolatey\bin\win_flex.exe"
 New-Item -ItemType SymbolicLink -Path "C:\ProgramData\chocolatey\bin\bison.exe" -Target "C:\ProgramData\chocolatey\bin\win_bison.exe"
+New-Item -ItemType SymbolicLink -Path "C:\ProgramData\chocolatey\bin\lex.exe" -Target "C:\ProgramData\chocolatey\bin\win_flex.exe"
+New-Item -ItemType SymbolicLink -Path "C:\ProgramData\chocolatey\bin\yacc.exe" -Target "C:\ProgramData\chocolatey\bin\win_bison.exe"
