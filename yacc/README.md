@@ -29,7 +29,7 @@ Abra o `bash` e entre no diretório que contém os arquivos com os códigos e ex
 
 .../compiladores/yacc/01-calc$ bison -d calc.y
 
-.../compiladores/yacc/01-calc$ gcc -o calc lex.yy.c calc.tab.c
+.../compiladores/yacc/01-calc$ gcc -o calc calc.tab.c
 
 .../compiladores/yacc/01-calc$ ./calc
 ```
