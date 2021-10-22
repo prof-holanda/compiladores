@@ -15,6 +15,8 @@ extern int yylineno;
 extern int yyerror (char const *msg, ...);
 extern int yylex();
 
+extern double eval(char op, double x, double y);
+
 /* 
   To debug, uncomment and run 
   bison --verbose --debug -d file.y 
@@ -23,14 +25,14 @@ int yydebug = 1;
 
 %}
 %union {
+        char c;
         double d;
         int i;
 }
-%token  <d> CONSTANT
+%token  <d> CONST
 %token  <i> VAR
-%type   <d> expr expr_l stmt
-%left   '+' '-'
-%left   '*' '/'
+%token   <c> OP
+%type   <d> assign expr stmt
 
 /* 
    Gramatica 
@@ -39,21 +41,23 @@ int yydebug = 1;
 */
 
 %%
-stmt_l  : stmt ';'              { printf("%g\n", $1); } 
-        | stmt_l stmt ';' 
+stmt_l  : stmt '\n'                     { printf("%g\n", $1); } 
+        | stmt_l stmt '\n'
+        | VAR '\n'                      { printf("%g\n", $1); }      
         ;
 
-stmt    : VAR '=' CONSTANT      { $$ = sym[$1] = $3; printf("%g\n", $3); }
-        | VAR '=' expr_l        { $$ = sym[$1] = $3; }
+stmt    : VAR '=' CONST                 { $$ = $3; printf("const %g\n", $3); } 
+        | assign                        { $$ = $1; printf("assign %g\n", $1);}
         ;
 
-expr_l  : expr
-        | expr_l expr
+assign  : VAR '=' VAR                   { $$ = sym[$1] = sym[$3]; }
+        | VAR '=' expr                  { $$ = sym[$1] = $3; }
         ;
 
-expr    : VAR '+' VAR           { $$ = sym[$1] + sym[$3]; } 
+expr    : VAR OP VAR                    { $$ = eval($2, sym[$1], sym[$3]); }
+        | expr OP VAR                   { $$ = eval($2, $1, sym[$3]); }
+        | '(' expr ')'                  { $$ = $2; }
         ;
-
 
 %%
 #include "lex.yy.c"
@@ -66,6 +70,26 @@ int yyerror(const char *msg, ...) {
 	va_end(args);
 
 	exit(EXIT_FAILURE);
+}
+
+double eval(char op, double x, double y) {
+        double v;
+
+        switch(op) {
+                case '+': v = x + y; break;
+                case '-': v = x - y; break;
+                case '*': v = x * y; break;
+                case '/': 
+                        if (y != 0.0)
+                                v = x / y;
+                        else
+                                yyerror("fatal error: division by zero at line %d\n", yylineno);
+                        break;
+                default:
+                        yyerror("fatal error: unknown operator %c\n", op);
+                        break;
+        }
+        return v;
 }
 
 int main (int argc, char **argv) {
