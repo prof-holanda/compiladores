@@ -9,7 +9,7 @@ date:
 
 # Exercícios
 
-## `flex`
+## `lex`
 
 1. Descreva o comportamento das expressões regulares a 
 seguir e dê alguns exemplos de *strings* que se encaixam em 
@@ -106,6 +106,58 @@ da seguinte forma no terminal (PowerShell, bash, ...):
 # Linux
 ./a.out arquivo.c
 ```
+
+## `yacc`
+
+1. Escreva um programa de "calculadora de mesa" `yacc` que avalie
+expressões aritméticas usando a [notação polonesa inversa](https://pt.wikipedia.org/wiki/Nota%C3%A7%C3%A3o_polonesa_inversa). 
+
+2. Escreva um programa de "calculadora de mesa" `yacc` que avalie
+expressões aritméticas usando a notação da linguagem 
+[LISP](https://pt.wikipedia.org/wiki/Lisp), 
+com a lista limitada a dois operandos. Por exemplo, a expressão
+
+```
+(/ (* (- 3 1) 4) 2)
+```
+
+tem como sequência de avaliação
+
+```
+(/ (* 2 4) 2) =
+(/ 8 2) =
+4
+```
+
+
+3. [Aho] Escreva um programa de "calculadora de mesa" `yacc` que avalie
+expressões Booleanas tendo como operações
+
+`'|'` &#8594; `OR`<br>
+`'&'` &#8594; `AND`<br>
+`'^'` &#8594; `XOR`<br>
+`'~'` &#8594; `NOT`<br>
+
+onde o operador unário `'~'` possui maior precedência sobre os demais 
+operadores, sendo que estes possuem mesma precedência excetuando se 
+a expressão estiver entre parênteses. Por exemplo, a expressão
+
+```
+0 ^ (1 | 0) | ~0 
+```
+tem como sequência de avaliação
+
+```
+0 ^ (1 | 0) | 1 =
+0 ^ 1 | 1 =
+1 | 1 =
+1
+```
+
+### Solução
+[Ex1](https://github.com/prof-holanda/compiladores/tree/bison/yacc/03-calc)<br>
+[Ex2](https://github.com/prof-holanda/compiladores/tree/bison/yacc/04-calc)<br>
+[Ex3](https://github.com/prof-holanda/compiladores/tree/bison/yacc/05-bool)<br>
 
 ## Referência
 

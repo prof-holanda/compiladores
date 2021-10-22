@@ -1,6 +1,10 @@
 # Script to install flex+bison and some utilities.
 # Author: Adriano J. Holanda
-# Date: 2021-09-06
+# Date: 2021-10-19
+function which($name)
+{
+    Get-Command $name | Select-Object -ExpandProperty Definition
+}
 
 # Function to check if a program is installed
 function Check_Program_Installed( $programName ) {
@@ -22,6 +26,8 @@ $programs = @(
     [pscustomobject]@{ProgramName='git';PackageName='git'}
     
     [pscustomobject]@{ProgramName='make';PackageName='make'}
+
+    [pscustomobject]@{ProgramName='nasm';PackageName='nasm'}
 
     [pscustomobject]@{ProgramName='pandoc';PackageName='pandoc'}
 
@@ -45,3 +51,10 @@ function Install_Programs() {
 
 Install_Choco
 Install_Programs
+
+# Create symbolic links to remove "win_" prefix
+# from flex and bison
+New-Item -ItemType SymbolicLink -Path "C:\ProgramData\chocolatey\bin\flex.exe" -Target "C:\ProgramData\chocolatey\bin\win_flex.exe"
+New-Item -ItemType SymbolicLink -Path "C:\ProgramData\chocolatey\bin\bison.exe" -Target "C:\ProgramData\chocolatey\bin\win_bison.exe"
+New-Item -ItemType SymbolicLink -Path "C:\ProgramData\chocolatey\bin\lex.exe" -Target "C:\ProgramData\chocolatey\bin\win_flex.exe"
+New-Item -ItemType SymbolicLink -Path "C:\ProgramData\chocolatey\bin\yacc.exe" -Target "C:\ProgramData\chocolatey\bin\win_bison.exe"

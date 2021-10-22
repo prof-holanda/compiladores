@@ -1,9 +1,10 @@
-# Compiladores (aka flex+bison)
+# Compiladores (aka `lex` &#8594; `flex` + `yacc` &#8594; `bison`)
 
-## Material Didático
+## Recursos Didáticos
 
-- Slides sobre [`flex`](https://drive.google.com/file/d/1kWByXIBed08TE1apS7LiLO39NRBF4xKS/view?usp=sharing);
-- [Exercícios](https://github.com/prof-holanda/compiladores/blob/main/exercicios.md) sobre análise léxica usando `flex`. [[pdf](https://drive.google.com/file/d/1hOAhKKeneLDFGcZztwBoFxHkGcrHN2Ec/view?usp=sharing)]
+- [lex](lex/)
+- [yacc](yacc/)
+- [Exercícios](https://github.com/prof-holanda/compiladores/blob/main/exercicios.md) sobre análise léxica usando `lex` e `yacc`. [[pdf](https://drive.google.com/file/d/1WCkVJgJfpCTTtohn12ooS58K4Qxvatq0/view?usp=sharing)]
 
 ## Setup
 
@@ -38,33 +39,7 @@ $ bash lnx.sh
 O script foi testado no Debian, talvez algumas alterações tenham que ser feitas para o 
 Ubuntu.
 
-## Fluxo de Compilação
-
-### Windows
-
-Abra o PowerShell e entre no diretório que contém os arquivos com os códigos e execute:
-
-```
-PS ...\compiladores\src> win_flex -o f01.yy.c f01.l
-
-PS ...\compiladores\src> gcc -o f01.exe f01.yy.c
-
-PS ...\compiladores\src> .\f01.exe arquivo_de_entrada.txt
-```
-
-### Linux
-
-Abra o `bash` e entre no diretório que contém os arquivos com os códigos e execute:
-
-```
-.../compiladores/src$ flex -o f01.yy.c f01.l
-
-.../compiladores/src$ gcc -o f01 f01.yy.c
-
-.../compiladores/src$ ./f01 arquivo_de_entrada.txt
-```
-
-# Dicas e Recursos
+# Dicas
 
 - [Guia de instalação do Subsistema Windows para Linux para Windows 10](https://docs.microsoft.com/pt-br/windows/wsl/install-win10).
 - Como instalar o [Windows Terminal](https://www.microsoft.com/pt-br/p/windows-terminal/9n0dx20hk701) para executar comandos `Unix`-like com mais facilidade.
