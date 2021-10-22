@@ -4,7 +4,7 @@ author:
 - Adriano J. Holanda
 - Zhao Liang
 date: 
-- 2021-09-20
+- 2021-09-22
 ---
 
 # Exercícios
@@ -133,10 +133,13 @@ tem como sequência de avaliação
 3. [Aho] Escreva um programa de "calculadora de mesa" `yacc` que avalie
 expressões Booleanas tendo como operações
 
-`'|'` &#8594; `OR`<br>
-`'&'` &#8594; `AND`<br>
-`'^'` &#8594; `XOR`<br>
-`'~'` &#8594; `NOT`<br>
+`'|'` &#8594; `OR`
+
+`'&'` &#8594; `AND`
+
+`'^'` &#8594; `XOR`
+
+`'~'` &#8594; `NOT`
 
 onde o operador unário `'~'` possui maior precedência sobre os demais 
 operadores, sendo que estes possuem mesma precedência excetuando se 
@@ -155,9 +158,9 @@ tem como sequência de avaliação
 ```
 
 ### Solução
-[Ex1](https://github.com/prof-holanda/compiladores/tree/bison/yacc/03-calc)<br>
-[Ex2](https://github.com/prof-holanda/compiladores/tree/bison/yacc/04-calc)<br>
-[Ex3](https://github.com/prof-holanda/compiladores/tree/bison/yacc/05-bool)<br>
+- [Ex1](https://github.com/prof-holanda/compiladores/tree/bison/yacc/03-calc)<br>
+- [Ex2](https://github.com/prof-holanda/compiladores/tree/bison/yacc/04-calc)<br>
+- [Ex3](https://github.com/prof-holanda/compiladores/tree/bison/yacc/05-bool)<br>
 
 ## Referência
 
