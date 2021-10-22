@@ -16,6 +16,7 @@ a.out
 # bison
 *.tab.*
 calc.c
+*.output
 
 # Vim
 *~
