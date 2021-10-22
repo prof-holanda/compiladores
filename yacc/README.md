@@ -2,7 +2,7 @@
 
 ## Material didático
 
-- Slides sobre [`yacc` &#8594; `bison`]();
+- Slides sobre [`yacc` &#8594; `bison`](https://docs.google.com/presentation/d/1yaMEEI7Q1ex6kU09wRmSz-zObbanBRyoNeKI4_1leYg/edit?usp=sharing);
 
 ## Fluxo de Compilação
 
@@ -15,7 +15,7 @@ PS ...\compiladores\yacc\01-calc> flex calc.l
 
 PS ...\compiladores\yacc\01-calc> bison -d calc.y
 
-PS ...\compiladores\yacc\01-calc> gcc -o calc.exe lex.yy.c calc.tab.c
+PS ...\compiladores\yacc\01-calc> gcc -o calc.exe calc.tab.c
 
 PS ...\compiladores\yacc\01-calc> .\calc.exe
 ```
