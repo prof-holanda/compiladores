@@ -2,19 +2,24 @@
   tasks:
     - name: Install compiler's compiler tools
       become: yes
-      update: yes
       package:
-        name: '{{ item }}'
+        name: "{{ item }}"
         state: present
-  with_items:
-    - apt-transport-https
-    - bison
-    - curl
-    - flex
-    - gcc
-    - gdb
-    - nasm
-    - make
-    - pandoc
-    - software-properties-common
+      loop:
+        - apt-transport-https
+        - bison
+        - curl
+        - flex
+        - gcc
+        - gdb
+        - nasm
+        - make
+        - pandoc
+        - software-properties-common
+  tags: compiler
 
+- hosts: localhost
+  tasks:
+    - name: Include "{{ ansible_os_family }}." tasks
+      include: "{{ ansible_os_family }}.yml" 
+  tags: vscode
