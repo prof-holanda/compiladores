@@ -1,0 +1,11 @@
+- hosts: localhost
+  tasks:
+    - name: Install compiler's compiler tools
+      become: yes
+      update: yes
+      package:
+        name: '{{ item }}'
+        state: present
+  with_items:
+    - flex
+
