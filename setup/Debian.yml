@@ -1,0 +1,22 @@
+- name: Add VS Code Apt signing key 
+  become: yes
+  apt_key:
+    url: "https://packages.microsoft.com/keys/microsoft.asc"
+    state: present
+  tags: vscode
+
+- name: Add VS Code repo into sources list
+  become: yes
+  apt_repository:
+    repo: "deb [arch=amd64,arm64,armhf] https://packages.microsoft.com/repos/code stable main"
+    state: present
+  tags: vscode
+
+- name: Install VS Code
+  become: yes
+  apt:
+    name: code
+    state: present
+    update_cache: yes
+  tags: vscode
+
