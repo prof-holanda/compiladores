@@ -2,4 +2,4 @@
 
 sudo apt install ansible &&\
 echo "'BECOME password' is the sudo password"
-ansible-playbook install.yml --ask-become-pass --tags vscode
+ansible-playbook install.yml --ask-become-pass
