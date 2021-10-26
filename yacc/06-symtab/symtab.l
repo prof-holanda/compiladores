@@ -15,7 +15,7 @@ T_SPACE     [ \t\n]
 [=;]                            { return yytext[0]; }
 [-+*/]                          { return yytext[0]; }
 {T_ID}                          { yylval.s = strdup(yytext); return T_ID; }
-{T_INT}                         { yylval.i = atof(yytext); return T_INT; }
+{T_INT}                         { yylval.i = atoi(yytext); return T_INT; }
 {T_SPACE}                       { ; }
 .                               { yyerror("unknown token %s\n", yytext); }
 %%
