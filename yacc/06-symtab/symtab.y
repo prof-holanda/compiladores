@@ -10,16 +10,9 @@
 /* tabela de simbolos */
 #include "symtab.h"
 
-struct symtab *head = NULL;
-int nsyms = 0; /* number of symbols */
+static struct symtab symbols[MAXSYMS];
+static int nsyms = 0; /* number of symbols */
 
-/* flex */
-extern int yylineno;
-
-extern int yyerror (char const *msg, ...);
-extern int yylex();
-
-extern double eval(char op, double x, double y);
 
 /* 
   To debug, uncomment and run 
@@ -29,30 +22,46 @@ int yydebug = 1;
 
 %}
 %union {
-        char c;
-        double d;
+        int i;
         char *s;
-        struct symtab *sym;
 }
 
-%token  <d> T_REAL
+%token  <i> T_INT
 %token  <s> T_ID
-%token  <c> T_OP
-%type   <d> assign
+%type <i> expr
+
+%left '*' '/'
+%left '+' '-'
+%right '='
+
+%start program
 
 /* 
    Gramatica 
    decl - declaration (declaração) 
-   expr - expression (expressao)
-   var - variable (variável)
 */
 
 %%
-decls   :  assign                     {printf("%g\n", $1); }                  
-        ;
+program         : block { return 0; }                  
+                ;
 
-assign  : T_ID  T_REAL               { $$ = $2; }
-        ;
+block           : assign_list
+                |
+                ;
+
+assign_list     : assignment
+                | assignment  assign_list
+                ;
+
+assignment      : T_ID '=' expr ';'             { assign($1, $3); }
+                ;
+
+expr            : expr '+' expr                 { $$ = $1 + $3; }
+                | expr '-' expr                 { $$ = $1 - $3; }
+                | expr '*' expr                 { $$ = $1 * $3; }
+                | expr '/' expr                 { $$ = $1 / $3; }
+                | T_INT                         { $$ = $1; }
+                ;
 %%
 #include "lex.yy.c"
 
@@ -66,44 +75,42 @@ int yyerror(const char *msg, ...) {
 	exit(EXIT_FAILURE);
 }
 
-Bool lookup(char *id) {
+static struct symtab *lookup(char *id) {
         int i;
+        struct symtab *p;
 
-        return false;
-}
-
-
-struct symtab *install(char *id, double val) {
+        for (i = 0; i < nsyms; i++) {
+                p = &symbols[i];
+                if (strncmp(p->id, id, MAXTOKEN) == 0)
+                        return p;
+        }
 
         return NULL;
 }
 
-double eval(char op, double x, double y) {
-        double v;
+static void install(char *id, int val) {
+        struct symtab *p;
 
-        switch(op) {
-                case '+': v = x + y; break;
-                case '-': v = x - y; break;
-                case '*': v = x * y; break;
-                case '/': 
-                        if (y != 0.0)
-                                v = x / y;
-                        else
-                                yyerror("fatal error: division by zero at line %d\n", yylineno);
-                        break;
-                default:
-                        yyerror("fatal error: unknown operator %c\n", op);
-                        break;
-        }
-        return v;
+        p = &symbols[nsyms++];
+        strncpy(p->id, id, MAXTOKEN);
+        p->val = val;
 }
 
+void assign(char *id, int val) {
+        struct symtab *p;
+
+        p = lookup(id);
+        if(p == NULL)
+                install(id, val);
+        else
+                p->val = val;
+}
 
 
 int main (int argc, char **argv) {
         FILE *fp;
-
-        return yyparse();
+        int i;
+        struct symtab *p;
 
         if (argc <= 0)
                 yyerror("usage: %s file\n", argv[0]);
@@ -116,6 +123,12 @@ int main (int argc, char **argv) {
         do {
                 yyparse();
         } while(!feof(yyin));
+
+
+        for (i = 0; i < nsyms; i++) {
+                p = &symbols[i];
+                printf("%s=%d\n", p->id, p->val);
+        }
 
         return EXIT_SUCCESS;
 }
