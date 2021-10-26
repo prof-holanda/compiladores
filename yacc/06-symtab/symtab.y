@@ -13,7 +13,6 @@
 static struct symtab symbols[MAXSYMS];
 static int nsyms = 0; /* number of symbols */
 
-
 /* 
   To debug, uncomment and run 
   bison --verbose --debug -d file.y 
@@ -23,12 +22,12 @@ int yydebug = 1;
 %}
 %union {
         int i;
-        char *s;
+        char *s; /* string */
 }
 
 %token  <i> T_INT
 %token  <s> T_ID
-%type <i> expr
+%type   <i> expr
 
 %left '*' '/'
 %left '+' '-'
