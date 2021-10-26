@@ -2,15 +2,19 @@
 #define __SYMTAB_H__
 
 #define MAXTOKEN 32
-
-typedef enum bool_enum {true, false} Bool;
+#define MAXSYMS 256
 
 struct symtab {
         char id[MAXTOKEN];
-        double val;
-        struct symtab *next;
+        int val;
 };
 
-extern struct symtab *install(char *id, double val);
+extern void assign(char *id, int val);
+
+/* flex */
+extern int yylineno;
+
+extern int yyerror (char const *msg, ...);
+extern int yylex();
 
 #endif
