@@ -31,13 +31,13 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 Execute os seguintes comandos no `bash`:
 
 ```
-$ cd /tmp
-$ wget https://raw.githubusercontent.com/prof-holanda/compiladores/main/setup/lnx.sh
+$ git clone https://github.com/prof-holanda/compiladores.git
+$ cd compiladores/setup
 $ bash lnx.sh
 ```
 
-O script foi testado no Debian, talvez algumas alterações tenham que ser feitas para o 
-Ubuntu.
+O script foi testado no Debian/Ubuntu, talvez algumas alterações tenham que ser feitas para 
+outras distribuições.
 
 # Dicas
 
