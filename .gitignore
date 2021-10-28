@@ -20,3 +20,9 @@ calc.c
 
 # Vim
 *~
+
+# LaTeX
+*.aux
+*.log
+*.out
+
