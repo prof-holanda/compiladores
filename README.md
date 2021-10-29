@@ -13,7 +13,7 @@ dos temas abordados:
 
 - [Análisador léxico e sintático com tabela de símbolos para a linguagem XYZ](https://drive.google.com/file/d/1ggvnsJSTHWxt0AQykWItaqApOkYGV71i/view?usp=sharing).
 
-# Debug
+## Debug
 
 Para depurar o fluxo de análise sintática, realize o seguintes 
 procedimentos:
