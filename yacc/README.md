@@ -6,6 +6,7 @@
 
 - [`yacc` &#8594; `bison`](https://docs.google.com/presentation/d/1yaMEEI7Q1ex6kU09wRmSz-zObbanBRyoNeKI4_1leYg/edit?usp=sharing);
 - [Tabela de símbolos](https://docs.google.com/presentation/d/1lye-g04QgQQtZe3m0Qvq7T-xVPJ2DRHSEjJkLRZjVlg/edit?usp=sharing).
+- [Geração de código](https://docs.google.com/presentation/d/1rpuhGsr91s-BAV-3XGWOEvhqtgWB4aIeLDlBAiyRy9E/edit?usp=sharing).
 
 ## Fluxo de Compilação
 
