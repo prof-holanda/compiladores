@@ -6,6 +6,30 @@
 - [yacc](yacc/)
 - [Exercícios](https://github.com/prof-holanda/compiladores/blob/main/exercicios.md) sobre análise léxica usando `lex` e `yacc`. [[pdf](https://drive.google.com/file/d/1WCkVJgJfpCTTtohn12ooS58K4Qxvatq0/view?usp=sharing)]
 
+# Projeto
+
+Projeto a ser desenvolvido e entregue para aprendizado 
+dos temas abordados:
+
+- [Análisador léxico e sintático com tabela de símbolos para a linguagem XYZ](https://drive.google.com/file/d/1ggvnsJSTHWxt0AQykWItaqApOkYGV71i/view?usp=sharing).
+
+# Debug
+
+Para depurar o fluxo de análise sintática, realize o seguintes 
+procedimentos:
+
+- Adicione a atribuição `int yydebug = 1;` na seção de declaração 
+do arquivo `yacc` `xyz.y`;
+- Execute o `bison` com a _flag_ `--debug` e `--verbose`, 
+compile o arquivo gerado `xyz.tzb.c` e teste em um arquivo
+contendo o código na linguagem `XYZ`:
+
+```
+bison -d --debug --verbose xyz.y
+gcc xyz.tab.c -o xyz.exe
+./xyz.exe arquivo.xyz
+```
+
 ## Setup
 
 ### Windows
