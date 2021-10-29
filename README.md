@@ -21,7 +21,7 @@ procedimentos:
 - Adicione a atribuição `int yydebug = 1;` na seção de declaração 
 do arquivo `yacc` `xyz.y`;
 - Execute o `bison` com a _flag_ `--debug` e `--verbose`, 
-compile o arquivo gerado `xyz.tzb.c` e teste em um arquivo
+compile o arquivo gerado `xyz.tab.c` e teste em um arquivo
 contendo o código na linguagem `XYZ`:
 
 ```
