@@ -30,6 +30,9 @@ gcc xyz.tab.c -o xyz.exe
 ./xyz.exe arquivo.xyz
 ```
 
+Qualquer dúvida, por favor abra uma [_issue_](https://github.com/prof-holanda/compiladores/issues) 
+ou envie um email. 
+
 ## Setup
 
 ### Windows
