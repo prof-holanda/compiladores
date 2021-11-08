@@ -54,7 +54,19 @@ Install_Programs
 
 # Create symbolic links to remove "win_" prefix
 # from flex and bison
-New-Item -ItemType SymbolicLink -Path "C:\ProgramData\chocolatey\bin\flex.exe" -Target "C:\ProgramData\chocolatey\bin\win_flex.exe"
-New-Item -ItemType SymbolicLink -Path "C:\ProgramData\chocolatey\bin\bison.exe" -Target "C:\ProgramData\chocolatey\bin\win_bison.exe"
-New-Item -ItemType SymbolicLink -Path "C:\ProgramData\chocolatey\bin\lex.exe" -Target "C:\ProgramData\chocolatey\bin\win_flex.exe"
-New-Item -ItemType SymbolicLink -Path "C:\ProgramData\chocolatey\bin\yacc.exe" -Target "C:\ProgramData\chocolatey\bin\win_bison.exe"
+$lnk2bin = @{
+    flex = 'win_flex'; 
+    lex = 'win_flex'; 
+    bison = 'win_bison'; 
+    yacc = 'Whiskers'
+}
+
+foreach($bin in $lnk2bin.keys)
+{
+    $bin_path, $lnk_path
+    $bin_path = "C:\ProgramData\chocolatey\bin\" + $bin
+    $lnk_path = "C:\ProgramData\chocolatey\bin\" + $lnk2bin.$bin
+    
+    # Test if the path exists
+    New-Item -ItemType SymbolicLink -Path $lnk_path -Target $bin_path 2> $null
+}
