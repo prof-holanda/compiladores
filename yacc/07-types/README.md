@@ -44,7 +44,7 @@ Para testar o compilador, execute:
 ```
 > flex types.l
 > bison -d --debug --verbose types.y
-> .\a.exe main.xyz *> main_types.log
+> .\a.exe main.xyz *> types_main.log
 ```
 
 A saída consistirá no percurso realizado pelo analisador 
@@ -53,8 +53,8 @@ reduzindo a pilha se uma regra é satisfeita. Se o compilador
 parar a execução no primeiro não-terminal `block` que é reduzido a 
 `program` (início do programa) e retorna `0` é sinal de qua a sintaxe 
 está correta. **Não há nenhuma ação semântica associada à regras**. 
-A será escrita em um arquivo chamado `main_types.log`,
-que deverá ser parecido com [type_main.log](https://raw.githubusercontent.com/prof-holanda/compiladores/main/yacc/07-types/types_main.log).
+A saída será escrita em um arquivo chamado `types_main.log`,
+que deverá ser parecido com [types_main.log](https://raw.githubusercontent.com/prof-holanda/compiladores/main/yacc/07-types/types_main.log).
 
 ---
 
