@@ -133,9 +133,7 @@ void assign(char *id, union value_union val, enum type_enum typ) {
 
 int main (int argc, char **argv) {
         FILE *fp;
-        int i;
-        struct symtab *p;
-
+        
         if (argc <= 0)
                 yyerror("usage: %s file\n", argv[0]);
 
