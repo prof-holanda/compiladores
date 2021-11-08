@@ -53,7 +53,7 @@ reduzindo a pilha se uma regra é satisfeita. Se o compilador
 parar a execução no primeiro não-terminal `block` que é reduzido a 
 `program` (início do programa) e retorna `0` é sinal de qua a sintaxe 
 está correta. **Não há nenhuma ação semântica associada à regras**.
-O arquivo [type_main.log](type_main.log) mostra um exemplo de saída 
+O arquivo [type_main.log](https://raw.githubusercontent.com/prof-holanda/compiladores/main/yacc/07-types/types_main.log) mostra um exemplo de saída 
 para os comandos acima.
 
 ---
