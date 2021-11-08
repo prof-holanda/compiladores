@@ -52,7 +52,7 @@ sintático no arquivo `main.xyz`, verificando cada _token_ e
 reduzindo a pilha se uma regra é satisfeita. Se o compilador
 parar a execução no primeiro não-terminal `block` que é reduzido a 
 `program` (início do programa) e retorna `0` é sinal de qua a sintaxe 
-está correta.
+está correta. **Não há nenhuma ação semântica associada à regras**.
 
 ---
 
