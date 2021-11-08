@@ -148,11 +148,5 @@ int main (int argc, char **argv) {
                 yyparse();
         } while(!feof(yyin));
 
-
-        for (i = 0; i < nsyms; i++) {
-                p = &symbols[i];
-                printf("%s=%d\n", p->id, p->val);
-        }
-
         return EXIT_SUCCESS;
 }
