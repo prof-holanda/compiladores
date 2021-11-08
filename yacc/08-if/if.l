@@ -23,9 +23,14 @@ T_ID            [a-zA-Z][a-zA-Z0-9_]*
 "||"            return T_LOR;
 "&&"            return T_LAND;
 "var"           return T_VAR;
+'+'             return T_ADD;
+'-'             return T_SUB;
+'%'             return T_MOD;
+'*'             return T_MUL;
+'\/'             return T_MUL;
 [0-9]+          { yylval.i = atoi(yytext); return T_INTEGER; }
 {T_ID}          { yylval.s = strdup(yytext); return T_ID; }
-[-+*/()=;]        { return yytext[0]; }
+[=;]          { return yytext[0]; }
 [ \t\n]         { ; }
 .               { yyerror("unknown token %s\n", yytext); }
 %%
