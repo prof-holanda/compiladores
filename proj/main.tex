@@ -36,7 +36,7 @@
 
 \title{Compiladores: Projeto}
 \author{Zhao Liang}
-\date{2021-10-29}
+\date{2021-12-02}
 \begin{document}
 \maketitle
 
@@ -70,7 +70,11 @@ vetores, ponteiros nem módulos. Todo o programa é definido em um
     entre parênteses e um corpo.
     \item Todas as funções devem retornar um valor mesmo que este 
     valor não seja usado diretamente. O retorno do valor é realizado 
-    usando o comando {\bf return}. 
+    usando o comando {\bf return}.
+    \item Quaisquer espaços devem ser ignorados, tais como, 
+	    espaço em branco, tabulação, retorno de ``carro''
+		e nova linha: ` ', `$\backslash$t', `$\backslash$r', 
+		`$\backslash$n'.
 \end{itemize}
 
 
@@ -95,15 +99,16 @@ por letras e {\it underscores} ''\_´´.
 
 \paragraph{Declarações.}
 Uma variável deve ser declarada antes de ser usada começando
-pela palavra reservada {\bf var} e uma lista de atribuições. 
-Nenhuma variável pode ser declarada sem possuir um valor inicial.
+pela palavra reservada {\bf var} e uma lista de atribuições 
+separada por ponto e vírgula ``;''. Nenhuma variável pode ser 
+declarada sem possuir um valor inicial.
 
 \subsection*{Expressões}
 As seguintes espressões exitem em \lang:
 
 \begin{itemize}
-\item Variáveis ({\tt if (a) \{...\} }) e literais 
-({\tt while (1) \{...\}});
+\item Variáveis ({\tt if a \{...\} }) e literais 
+({\tt while 1 \{...\}});
 \item Expressões binárias com os operadores: \\
 {\tt + - * / \% > < >= <= == != \&\& ||};
 \item Expressões unárias com os operadores:
@@ -134,9 +139,9 @@ fn fatorial(n) {
             i++;
         }
         return r;
-    }
+}
     
-    fn main() {
+fn main() {
         var 
             i = 3;
             f = 0;
@@ -144,7 +149,7 @@ fn fatorial(n) {
         f = fat(i);
 
         return 0;
-    }
+}
 \end{lstlisting}
 
 \section*{Projeto}
