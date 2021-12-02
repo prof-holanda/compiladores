@@ -12,6 +12,7 @@ Projeto a ser desenvolvido e entregue para aprendizado
 dos temas abordados:
 
 - [Análisador léxico e sintático com tabela de símbolos para a linguagem XYZ](https://drive.google.com/file/d/1ggvnsJSTHWxt0AQykWItaqApOkYGV71i/view?usp=sharing).
+[`Atualizado em 02/12/2021`]
 
 ## Debug
 
